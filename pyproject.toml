@@ -1,0 +1,18 @@
+[project]
+name = "news2rss"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiohttp>=3.12.15",
+    "boto3>=1.40.25",
+    "bs4>=0.0.2",
+    "dotenv>=0.9.9",
+    "feedgen>=1.0.0",
+    "feedgenerator>=2.2.1",
+    "feedparser>=6.0.11",
+    "pytz>=2025.2",
+    "requests>=2.32.4",
+    "sqlalchemy>=2.0.42",
+]
