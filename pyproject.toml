@@ -10,7 +10,6 @@ dependencies = [
     "bs4>=0.0.2",
     "dotenv>=0.9.9",
     "feedgen>=1.0.0",
-    "feedgenerator>=2.2.1",
     "feedparser>=6.0.11",
     "pytz>=2025.2",
     "requests>=2.32.4",
