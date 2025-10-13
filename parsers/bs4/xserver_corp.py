@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 from datetime import datetime, timezone, timedelta
 from parsers.bs4.bs4parser import BS4Parser
 
@@ -16,6 +17,11 @@ class Parser(BS4Parser):
         a = elem.find("a")
         url  = self.base_url + a.get("href")
         date_str = elem.find("p", class_="news__link-date").text.strip()
-        date =  datetime.strptime(date_str, "%Y.%m.%d")
+        date_format = ""
+        if re.search(r'^\d{4}\.\d{2}\.\d{2}$', date_str):
+            date_format = "%Y.%m.%d"
+        elif re.search(r'^\d{4}\/\d{2}\/\d{2}$', date_str):
+            date_format = "%Y/%m/%d"
+        date =  datetime.strptime(date_str, date_format)
         title = elem.find("p", class_="news__link-title").text.strip()
         return { "date": date, "url": url, "title": title, "description": None }

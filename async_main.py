@@ -78,6 +78,7 @@ async def process_service(session: aiohttp.ClientSession, service_name: str, ser
         mod_name = f"parsers.{executor}.{service_name}"
         mod = importlib.import_module(mod_name)
         parser = mod.Parser(content, selector=selector, base_url=base_url, tags=tags)
+        print(parser)
         news = parser.get_news()
 
     except Exception as e:
