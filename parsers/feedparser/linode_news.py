@@ -18,13 +18,16 @@ class Parser(FeedParser):
         else:
             description = None
 
-        if "published" in entry :
+        if "published" in entry and entry["published"] :
             # published_parsed がNoneでpublishedに木, 28 Aug 2025 13:00:00 +0000 のような文字列がはいっているので、これをdatetimeに変換する
             # 日本語の曜日部分を除去（漢字1-3文字の曜日 + カンマ + スペース）
             # 「木,」「木曜,」「木曜日,」のパターンに対応
             # Fri, 22 Aug 2025 19:38:06 +0000 という時もある
             # Tue, 19 8月 2025 13:00:00 +0000 という時もある
             date = self.parse_chaotic_pubdate(entry["published"])
+        else:
+            # 無理やり現在にする
+            date = datetime.now()
 
         return { "date": date, "url": url, "title": title, "description": description }
 
@@ -59,5 +62,15 @@ class Parser(FeedParser):
         for jp_month, en_month in japanese_months.items():
             if jp_month in date_str:
                 date_str = date_str.replace(jp_month, en_month)
+
+        # Thu, 16 Oct 2025 14:00:00 UTCのような場合は%zの書式に合うように強制的に変換
+        #date_str = date_str.replace('UTC', '+0000')
+        # 'Z' 終端 → +0000
+        date_str = re.sub(r'Z\b', '+0000', date_str)
+        # 代表的な略称を数値に
+        tz_map = {'UTC': '+0000', 'GMT': '+0000', 'JST': '+0900'}
+        # 末尾や単語境界で現れる略称を置換
+        for k, v in tz_map.items():
+            date_str = re.sub(rf'(?<![A-Za-z]){k}(?![A-Za-z])', v, date_str)
 
         return datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S %z")
