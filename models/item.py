@@ -35,7 +35,7 @@ class Item(Base):
             cls.service_id == kwargs["service_id"],
             cls.title      == kwargs["title"],
             cls.link       == kwargs["link"],
-            cls.pubdate    == kwargs["pubdate"]
+            #cls.pubdate    == kwargs["pubdate"]
         ).first()
         return True if item else False
 
