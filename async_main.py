@@ -82,7 +82,7 @@ async def process_service(session: aiohttp.ClientSession, service_name: str, ser
         news = parser.get_news()
 
     except Exception as e:
-        print(e)
+        print(f"{mod_name}  {e}")
         return 
 
 

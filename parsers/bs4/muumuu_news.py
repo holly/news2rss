@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 from datetime import datetime, timezone, timedelta
 from parsers.bs4.bs4parser import BS4Parser
 
@@ -11,7 +12,12 @@ class Parser(BS4Parser):
         if p is None:
             return {}
         date_str = p.text
-        date  = datetime.strptime(date_str, "%Y-%m-%d")
+        m = re.match(r'^(\d{4}-\d{1,2}-\d{1,2})', date_str)
+        if m:
+            date  = datetime.strptime(m.group(0), "%Y-%m-%d")
+        else:
+            date = datetime.now()
+
         # title
         title = elem.find("h3", class_="muu-infomation__title").text
         # url
