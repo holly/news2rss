@@ -52,7 +52,8 @@ INSERT INTO categories (name) VALUES
   ('ssl'),
   ('game'),
   ('cdn'),
-  ('corp')
+  ('corp'),
+  ('security')
   ;
 
 INSERT INTO services (name, category_id, identifier, executor, news_url, base_url, selector, tags) VALUES
@@ -92,6 +93,9 @@ INSERT INTO services (name, category_id, identifier, executor, news_url, base_ur
   ('Linode News &amp; Updates - Blog | Akamai', 4, 'linode_news', 'feedparser', 'https://www.linode.com/blog/feed/', NULL, NULL, '[]'),
 
   ('AWS Lightsail News', 4, 'lightsail_news', 'feedparser', 'https://aws.amazon.com/jp/about-aws/whats-new/recent/feed/?search=lightsail', NULL, NULL, '[]'),
-  ('AWS CloudFront News', 9, 'cloudfront_news', 'feedparser', 'https://aws.amazon.com/jp/about-aws/whats-new/recent/feed/?search=cloudfront', NULL, NULL, '[]')
+  ('AWS CloudFront News', 9, 'cloudfront_news', 'feedparser', 'https://aws.amazon.com/jp/about-aws/whats-new/recent/feed/?search=cloudfront', NULL, NULL, '[]'),
+
+('Security NEXT 製品・サービス', 11, 'security_next_products', 'bs4', 'https://www.security-next.com/category/cat3', 'https://www.security-next.com/', '#wrapper > div.main > div.content > dl > dd', '[]'),
+('ScanNetSecurity 製品・サービス', 11, 'scan_net_security_products', 'bs4', 'https://scan.netsecurity.ne.jp/category/business/product/latest/', 'https://scan.netsecurity.ne.jp/', 'main > div.main-news > div > section', '[]')
 ;
 
