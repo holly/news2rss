@@ -7,7 +7,7 @@ from parsers.bs4.bs4parser import BS4Parser
 class Parser(BS4Parser):
 
     def parse_entry(self, elem):
-        date_elem = elem.find("p", attrs={'data-date-format': True})
+        date_elem = elem.find("p", attrs={'data-date-template': True})
         if date_elem:
             date_str = date_elem.text.strip()
         else:
