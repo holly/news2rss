@@ -127,6 +127,9 @@ INSERT INTO services (name, company_id, category_id, identifier, executor, news_
 ('ScanNetSecurity 製品・サービス', 11, 11, 'scan_net_security_products', 'bs4', 'https://scan.netsecurity.ne.jp/category/business/product/latest/', 'https://scan.netsecurity.ne.jp/', 'main > div.main-news > div > section', '[]'),
 
   ('クラウドフレアジャパン株式会社【プレスリリース】', 13, 9, 'cloudflare_prtimes_news', 'feedparser', 'https://prtimes.jp/companyrdf.php?company_id=61678', NULL, NULL, '[]'),
-  ('ファストリー株式会社【プレスリリース】', 14, 9, 'fastly_prtimes_news', 'feedparser', 'https://prtimes.jp/companyrdf.php?company_id=37639', NULL, NULL, '[]')
+  ('ファストリー株式会社【プレスリリース】', 14, 9, 'fastly_prtimes_news', 'feedparser', 'https://prtimes.jp/companyrdf.php?company_id=37639', NULL, NULL, '[]'),
+
+  ('さくらのレンタルサーバ アライアンス', 5, 1, 'sakura_rs_alliance', 'feedparser', 'https://www.sakura.ad.jp/corporate/information/alliance/feed/', '', '', '["さくらのレンタルサーバ","さくらのマネージドサーバ"]')
+
 ;
 
