@@ -129,7 +129,7 @@ INSERT INTO services (name, company_id, category_id, identifier, executor, news_
   ('クラウドフレアジャパン株式会社【プレスリリース】', 13, 9, 'cloudflare_prtimes_news', 'feedparser', 'https://prtimes.jp/companyrdf.php?company_id=61678', NULL, NULL, '[]'),
   ('ファストリー株式会社【プレスリリース】', 14, 9, 'fastly_prtimes_news', 'feedparser', 'https://prtimes.jp/companyrdf.php?company_id=37639', NULL, NULL, '[]'),
 
-  ('さくらのレンタルサーバ アライアンス', 5, 1, 'sakura_rs_alliance', 'feedparser', 'https://www.sakura.ad.jp/corporate/information/alliance/feed/', '', '', '["さくらのレンタルサーバ","さくらのマネージドサーバ"]')
-
+  ('さくらのレンタルサーバ アライアンス', 5, 1, 'sakura_rs_alliance', 'feedparser', 'https://www.sakura.ad.jp/corporate/information/alliance/feed/', '', '', '["さくらのレンタルサーバ","さくらのマネージドサーバ"]'),
+  ('Xserver SSL ニュース', 2, 7, 'xserver_ssl', 'bs4', 'https://ssl.xdomain.ne.jp/news/', '', 'main > section > div > article > ul > li', '[]')
 ;
 
